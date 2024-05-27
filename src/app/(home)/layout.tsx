@@ -6,9 +6,8 @@ export type HomePropsChildren = PropsWithChildren<{}>
 export default function HomeLayout(props: HomePropsChildren) {
     const {children } = props;
 
-    return <div>
-    {children}
+    return <>
     <Header/>
-        <p> Test</p>
-    </div>
+    {children}
+    </>
 }
