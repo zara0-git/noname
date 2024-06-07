@@ -2,9 +2,9 @@ import React from "react";
 
 function footer() {
   return (
-    <div className=" bg-red-700 justify-center">
-      <div className="w-[1500px] mr-auto ml-auto">footer</div>
-    </div>
+    <footer className="bg-red-700">
+      <div className="container w-[1500px] mr-auto ml-auto">footer</div>
+    </footer>
   );
 }
 

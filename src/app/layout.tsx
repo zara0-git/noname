@@ -1,5 +1,5 @@
-import './globals.css'
-import '@fontsource/inter'
+import "./globals.css";
+import "@fontsource/inter";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,11 +11,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" >
-      <body className="min-h-screen">
-        {children}
-      </body>
-    </html>
-  );
+  return <html lang="en">{children}</html>;
 }

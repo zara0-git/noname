@@ -6,73 +6,39 @@ import Link from "next/link";
 import menus from "@/src/data/menu";
 
 export default function Header() {
-  const [top, setTop] = useState(true);
-
-  const scrollHandler = () => {
-    window.pageYOffset > 10 ? setTop(false) : setTop(true);
-  };
-
-  useEffect(() => {
-    // scrollHandler();
-    // window.addEventListener("scroll", scrollHandler);
-    // return () => window.removeEventListener("scroll", scrollHandler);
-  }, []);
-
   return (
-    <header>
-      <nav
-        className={`bg-white border-gray-200 px-4 lg:px-6 py-6 dark:bg-slate-950 ${
-          top ? "top-0" : "fixed"
-        }`}
-      >
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <Link href="/" className="flex items-center">
-            <img
-               src="https://png.pngtree.com/png-clipart/20230504/original/pngtree-blue-bird-isolated-on-transparent-png-image_9140659.png"
-              className="mr-3 h-6 sm:h-9"
-              alt="logo"
-            />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Aogara
-            </span>
-          </Link>
-          <div className="flex items-center lg:order-2">
-            <button
-              data-collapse-toggle="mobile-menu-2"
-              type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="mobile-menu-2"
-              aria-expanded="false"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <div
-            className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-            id="mobile-menu-2"
-          >
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+    <header className=" relative shadow-lg px-3 py-2">
+      <nav className="flex justify-between">
+        <div className="w-[130px] md:w-[200px] flex items-center">
+          <img
+            className="w-[50px]"
+            src="https://png.pngtree.com/png-clipart/20230504/original/pngtree-blue-bird-isolated-on-transparent-png-image_9140659.png"
+            alt="LOGO"
+          />
+          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            Aogara
+          </span>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="duration-500 absolute md:static md:w-auto w-full md:h-auto h-[85vh] flex md:items-center gap-[1.5vw] top-[100%] left-[-100%] px-5 md:py-0 py-5 ">
+            <ul className="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
               {menus.map((s, index) => (
-                <li key={index}>
-                  <Link href={s.url} passHref className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">
-                    {/* <a  href={s.url} className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"> */}
-                      {s.name}
-                    {/* </a> */}
-                  </Link>
+                <li
+                  key={index}
+                  className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#101eea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
+                >
+                  <Link href={s.url}>{s.name}</Link>
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="items-center gap-2">
+            <svg
+              className="text-[30px] cursor-pointer md:hidden"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            ></svg>
           </div>
         </div>
       </nav>

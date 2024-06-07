@@ -9,13 +9,20 @@ export default function HomeLayout(props: HomePropsChildren) {
 
   return (
     <>
-      <Header />
-      <>
-        <div className="mr-auto ml-auto w-[1500px] bg-white">
-            {children}
-            </div>
-            <Footer/>
-      </>
+      <body className="">
+        <>
+          <Header />
+        </>
+        <div
+          className="container mr-auto ml-auto w-[1500px]
+        "
+        >
+          {children}
+        </div>
+        <>
+          <Footer />
+        </>
+      </body>
     </>
   );
 }
